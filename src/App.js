@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
 import SelectComponent from './components/SelectComponent'
+import './styles.scss'
 
 function App() {
   const display = 'Mechanism'

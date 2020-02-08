@@ -1,0 +1,69 @@
+// Colour variables
+$blue: #03b6fc;
+$darker-blue: #04a4e4;
+
+.select-btn {
+  border: 1px solid #ccc;
+  margin: 2em;
+  padding: 1.5em;
+  background-color: white;
+  color: black;
+
+}
+
+.selected {
+  color: white;
+  background: $blue;
+  border: 1px solid $darker-blue;
+}
+
+.default-text {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.small-text {
+  font-size: 1.3em;
+  font-weight: 400;
+}
+
+.popup {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 250px;
+  border: 1px solid #ccc;
+
+
+
+  li {
+    margin: auto;
+    padding: 0.8em 1em;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+
+  li:hover,
+  li.selected {
+    color: white;
+    background: $blue;
+    border: 1px solid $darker-blue;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalise {
+  text-transform: capitalize;
+}
+
+.hide {
+  display: none;
+}
