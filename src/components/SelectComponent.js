@@ -3,14 +3,13 @@ import React, { useState } from 'react';
 
 const SelectComponent = ({display, options}) => {
   const [selection, setSelection] = useState([])
-
+  
   
   const SelectOptions = () => {
     const displayOptions = options.map(option => 
       <li key={option}
         onClick={(e) => selectOption(e)}
-        className="default-text uppercase"  
-      >
+        className="default-text">
         {option}
       </li>
     )
@@ -31,56 +30,34 @@ const SelectComponent = ({display, options}) => {
       // remove from selection array  
       setSelection(selection.filter(option => option !== selectedOption))
       // remove selected style from clicked option
-      selectedOptionEl.classList.remove('selected')
-            
+      selectedOptionEl.classList.remove('selected')       
        
     } else {
       // add selected option
       setSelection(selection.concat(selectedOption))
       // change selected option colour
       selectedOptionEl.classList.add('selected')
-      // add selected style to clicked option
-      document.querySelector('.select-btn').classList.add('selected')
-      
+           
     }
-        
-    updateComponentStyles()
-
   }
 
-  const updateComponentStyles = () => {
-
-    const displayedOptionText = document.querySelector('.displayed-option')
-    
-    if (selection) {
-      displayedOptionText.classList.remove('default-text', 'uppercase')
-      displayedOptionText.classList.add('small-text', 'capitalise')
-
-    } else {
-      
-      displayedOptionText.classList.remove('small-text', 'capitalise')
-      displayedOptionText.classList.add('default-text', 'uppercase')
-      
-      document.querySelector('.select-btn').classList.remove('selected')
-    }
-    
-  }
-
+ 
   const showSelectOptions = () => {
     document.querySelector('.popup').classList.toggle('hide')
   }
 
   return (
-    <div>
+    <div className='select-component'>
       <button 
-        className='select-btn'
+        className={selection.length !== 0 ? 'select-btn selected' : 'select-btn default'}
         onClick={showSelectOptions}>
-        <span className="default-text uppercase selected-options">
+        <span className="selected-options uppercase">
           {selection.join(', ')}
-          <br/>
+          
         </span>
        
-        <span className="default-text uppercase displayed-option">
+        <span className={selection.length !== 0 ?
+        'small-text' : 'default-text'}>
           {display}
         </span>       
       </button>
